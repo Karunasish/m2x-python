@@ -1,6 +1,5 @@
 from m2x.v2.resource import Resource
 from m2x.v2.streams import Stream
-from m2x.v2.triggers import Trigger
 from m2x.v2.keys import Key
 
 
@@ -36,12 +35,6 @@ class Device(Resource):
 
     def log(self):
         return self.api.get(self.subpath('/log'))
-
-    def triggers(self, **params):
-        return Trigger.list(self.api, self, **params)
-
-    def create_trigger(self, **params):
-        return Trigger.create(self.api, self, **params)
 
     def post_updates(self, **values):
         return self.api.post(self.subpath('/updates'), data=values)

@@ -77,19 +77,6 @@ class TestDevices(BaseTestCase):
         assert len(out['requests']) == 3
 
     @BaseTestCase.request_case
-    def test_triggers(self, **kwargs):
-        out = self.device.triggers()
-        assert len(out) == 1
-
-    @BaseTestCase.request_case
-    def test_create_trigger(self, params=None, **kwargs):
-        out = self.device.create_trigger(**params)
-        assert out.name == 'trigger1'
-        assert out.stream == 'stream1'
-        assert out.send_location is False
-        assert out.callback_url == 'http://example.com/cb'
-
-    @BaseTestCase.request_case
     def test_post_updates(self, params=None, **kwargs):
         out = self.device.post_updates(**params)
         assert out['status'] == 'accepted'

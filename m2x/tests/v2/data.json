@@ -521,52 +521,6 @@
             }
         },
 
-        "triggers": {
-            "url": "https://api-m2x.att.com/v2/devices/device1/triggers",
-            "response": {
-                "triggers": [{
-                    "status": "enabled",
-                    "send_location": false,
-                    "updated": "2015-04-21T03:22:06.501Z",
-                    "name": "trigger1",
-                    "stream": "stream1",
-                    "created": "2015-04-21T03:22:06.501Z",
-                    "url": "http://api-m2x.att.com/v2/devices/device1/triggers/aUZZ_0etqazHbbltcCtB",
-                    "value": 10,
-                    "condition": ">",
-                    "callback_url": "http://example.com/cb",
-                    "id": "aUZZ_0etqazHbbltcCtB",
-                    "unit": null
-                }]
-            }
-        },
-
-        "create_trigger": {
-            "url": "https://api-m2x.att.com/v2/devices/device1/triggers",
-            "method": "POST",
-            "params": {
-                "value": 10,
-                "callback_url": "http://example.com/cb",
-                "condition": ">",
-                "name": "trigger1",
-                "stream": "stream1"
-            },
-            "response": {
-                "status": "enabled",
-                "send_location": false,
-                "updated": "2015-04-21T03:22:06.501Z",
-                "name": "trigger1",
-                "stream": "stream1",
-                "created": "2015-04-21T03:22:06.501Z",
-                "url": "http://api-m2x.att.com/v2/devices/device1/triggers/aUZZ_0etqazHbbltcCtB",
-                "value": 10,
-                "condition": ">",
-                "callback_url": "http://example.com/cb",
-                "id": "aUZZ_0etqazHbbltcCtB",
-                "unit": null
-            }
-        },
-
         "post_updates": {
             "url": "https://api-m2x.att.com/v2/devices/device1/updates",
             "method": "POST",
