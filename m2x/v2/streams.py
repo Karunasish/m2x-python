@@ -15,6 +15,9 @@ class Stream(Resource):
         self.data.update(self.item_update(self.api, self.device, self.name, **attrs))
         return self.data
 
+    def remove(self):
+        return self.api.delete(self.subpath(""))
+
     def values(self, **params):
         return self.api.get(self.subpath('/values'), params=params)
 
