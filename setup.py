@@ -15,7 +15,7 @@ setup(
     author='Citrusbyte',
     author_email='matias.aguirre@citrusbyte.com',
     description='M2X Python API client',
-    license='BSD',
+    license='MIT',
     keywords='m2x, api',
     url='https://github.com/attm2x/m2x-python',
     packages=[
@@ -32,7 +32,7 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Topic :: Internet',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Intended Audience :: Developers',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
