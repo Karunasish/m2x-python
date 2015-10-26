@@ -98,19 +98,6 @@ The parameter to `.get()` is the Device ID.
 <m2x.v2.devices.Location at 0x7f6791d60e50>
 ```
 
-#### Device triggers:
-
-```python
->>> device = client.device('188a0afb3adc379706e780a4eafbd153')
-<m2x.v2.devices.Device at 0x1652fd0>
->>> device.triggers()
-[<m2x.v2.triggers.Trigger at 0x7f6791d4d690>]
-
->>> trigger = device.triggers()[0]
-<m2x.v2.triggers.Trigger at 0x7f6791d4d690>
->>> trigger.test()
-```
-
 #### Device updates (post several values to the device in a single request):
 
 ```python
