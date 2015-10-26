@@ -13,7 +13,7 @@ setup(
     name='m2x',
     version=version,
     author='Citrusbyte',
-    author_email='matia.saguirre@citrusbyte.com',
+    author_email='matias.aguirre@citrusbyte.com',
     description='M2X Python API client',
     license='BSD',
     keywords='m2x, api',
