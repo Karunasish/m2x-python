@@ -45,6 +45,10 @@ class Device(Resource):
     def values(self, **params):
         return self.api.get(self.subpath('/values'), params=params)
 
+    def values_export(self, **params):
+        self.api.get(self.subpath('/values/export.csv'), params=params)
+        return self.api.last_response
+
     @classmethod
     def by_tags(cls, api):
         response = api.get('devices/tags') or {}
