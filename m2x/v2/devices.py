@@ -51,3 +51,8 @@ class Device(Resource):
     def catalog(cls, api, **params):
         response = api.get('devices/catalog', **params)
         return cls.itemize(api, response)
+
+    @classmethod
+    def search(cls, api, **params):
+        response = api.post('devices/search', data=params)
+        return cls.itemize(api, response)

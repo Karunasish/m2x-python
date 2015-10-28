@@ -19,6 +19,9 @@ class V2Mixin(object):
     def devices(self, **params):
         return Device.list(self, **params)
 
+    def devices_search(self, **params):
+        return Device.search(self, **params)
+
     def device_catalog(self, **params):
         return Device.catalog(self, **params)
 
