@@ -42,6 +42,9 @@ class Device(Resource):
     def post_update(self, **values):
         return self.api.post(self.subpath('/update'), data=values)
 
+    def values(self, **params):
+        return self.api.get(self.subpath('/values'), params=params)
+
     @classmethod
     def by_tags(cls, api):
         response = api.get('devices/tags') or {}
