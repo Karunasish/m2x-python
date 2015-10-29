@@ -91,6 +91,11 @@ This `client` an interface to your data in M2X
   devices = client.devices()
   ```
 
+- [Jobs](m2x/v2/jobs.py)
+  ```python
+  job = client.job('<JOB-ID>')
+  ```
+
 - [Key](m2x/v2/keys.py)
   ```python
   key = client.key('<KEY-TOKEN>')

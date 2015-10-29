@@ -1,6 +1,7 @@
 from m2x.api import HTTPAPIBase
 from m2x.v2.devices import Device
 from m2x.v2.distributions import Distribution
+from m2x.v2.jobs import Job
 from m2x.v2.keys import Key
 
 
@@ -36,6 +37,9 @@ class V2Mixin(object):
 
     def distributions(self, **params):
         return Distribution.list(self, **params)
+
+    def job(self, id):
+        return Job.get(self, id)
 
     def key(self, key):
         return Key.get(self, key)

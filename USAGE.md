@@ -136,6 +136,15 @@ access it, just use the `catalog` property:
 >>>    ...
 ```
 
+## Jobs
+
+`Jobs` can be retrieved individually using their id
+
+```python
+>>> job = client.job('188a0afb3adc379706e780a4eafbd153')
+<m2x.v2.jobs.Job at 0x1652fd0>
+```
+
 ## Keys
 
 `Keys` is accessible by the `keys` property in a `M2XClient` instance.
