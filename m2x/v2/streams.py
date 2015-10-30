@@ -1,6 +1,7 @@
 from m2x.v2.resource import Resource
 
-
+# Wrapper for AT&T M2X Data Streams API
+# https://m2x.att.com/developer/documentation/v2/device
 class Stream(Resource):
     ITEM_PATH = 'devices/{device_id}/streams/{name}'
     COLLECTION_PATH = 'devices/{device_id}/streams'

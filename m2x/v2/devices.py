@@ -2,7 +2,8 @@ from m2x.v2.resource import Resource
 from m2x.v2.streams import Stream
 from m2x.v2.keys import Key
 
-
+# Wrapper for AT&T M2X Device API
+# https://m2x.att.com/developer/documentation/v2/device
 class Device(Resource):
     COLLECTION_PATH = 'devices'
     ITEM_PATH = 'devices/{id}'
