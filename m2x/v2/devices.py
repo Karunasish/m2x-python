@@ -31,6 +31,9 @@ class Device(Resource):
         return self.data.get('location') or \
             self.api.get(self.subpath('/location')) or {}
 
+    def location_history(self, **params):
+        return self.api.get(self.subpath('/location/waypoints'), params=params)
+
     def update_location(self, **params):
         return self.api.put(self.subpath('/location'), data=params)
 
