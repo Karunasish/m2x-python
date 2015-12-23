@@ -1,4 +1,5 @@
 from m2x.v2.resource import Resource
+from m2x.v2.metadata import Metadata
 from m2x.v2.devices import Device
 
 class DistributionDevice(Device):
@@ -6,7 +7,7 @@ class DistributionDevice(Device):
 
 # Wrapper for AT&T M2X Distribution API
 # https://m2x.att.com/developer/documentation/v2/distribution
-class Distribution(Resource):
+class Distribution(Resource, Metadata):
     COLLECTION_PATH = 'distributions'
     ITEM_PATH = 'distributions/{id}'
     ITEMS_KEY = 'distributions'
