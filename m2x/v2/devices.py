@@ -27,7 +27,7 @@ class Device(Resource):
     def create_key(self, **params):
         return Key.create(self.api, device=self.id, **params)
 
-    def location(self, **location):
+    def location(self):
         return self.data.get('location') or \
             self.api.get(self.subpath('/location')) or {}
 
