@@ -1,5 +1,6 @@
 from m2x.api import HTTPAPIBase
 from m2x.v2.collections import Collection
+from m2x.v2.commands import Command
 from m2x.v2.devices import Device
 from m2x.v2.distributions import Distribution
 from m2x.v2.jobs import Job
@@ -20,6 +21,15 @@ class V2Mixin(object):
 
     def collections(self, **params):
         return Collection.list(self, **params)
+
+    def command(self, id):
+        return Command.get(self, id)
+
+    def send_command(self, **params):
+        return Command.create(self, **params)
+
+    def commands(self, **params):
+        return Command.list(self, **params)
 
     def device(self, id):
         return Device.get(self, id)

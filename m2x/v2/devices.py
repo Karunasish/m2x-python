@@ -57,6 +57,18 @@ class Device(Resource, Metadata):
     def values_search(self, **params):
         return self.api.post(self.subpath('/values/search'), data=params)
 
+    def commands(self, **params):
+        return self.api.get(self.subpath('/commands'), params=params)
+
+    def command(self, id):
+        return self.api.get(self.subpath('/commands/%s' % id))
+
+    def process_command(self, id, **params):
+        return self.api.post(self.subpath('/commands/%s/process' % id), data=params)
+
+    def reject_command(self, id, **params):
+        return self.api.post(self.subpath('/commands/%s/reject' % id), data=params)
+
     @classmethod
     def by_tags(cls, api):
         response = api.get('devices/tags') or {}
