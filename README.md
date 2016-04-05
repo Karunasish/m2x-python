@@ -141,7 +141,8 @@ $ API_KEY=<API-KEY-TOKEN> python ./example.py
 
 ## Getting HTTP Response
 
-You can retrieve the last response received by the client using the `last_response` property of the `client` object:
+You can retrieve the last response received by the client using the
+`last_response` property of the `client` object:
 
 ```python
 import os
@@ -164,6 +165,42 @@ headers = client.last_response.headers
 
 # Get json data returned in HTTP response
 json = client.last_response.json
+```
+
+In the case of an HTTP error response (like a `400` or `500` error),
+the library will drop an `HTTPError` exception (inherited from
+`python-requests`). You can still retrieve the original respone by
+catching this exception:
+
+```python
+import os
+
+from requests.exceptions import HTTPError
+
+
+from m2x.client import M2XClient
+
+# Instantiate a client
+client = M2XClient(key=os.environ['API_KEY'])
+
+# Make a request to the M2X API
+try:
+    client.devices()
+except HTTPError as error:
+    # Get raw HTTP response
+    raw = client.last_response.raw
+
+    # Or get it from the error instance
+    # raw = error.response
+
+    # Get HTTP respose status code (e.g. `200`)
+    status = client.last_response.status
+
+    # Get HTTP response headers
+    headers = client.last_response.headers
+
+    # Get json data returned in HTTP response (might be None)
+    json = client.last_response.json
 ```
 
 ## Versioning
