@@ -139,6 +139,32 @@ To run this example you need a `API Key` and execute it like this:
 $ API_KEY=<API-KEY-TOKEN> python ./example.py
 ```
 
+## Getting HTTP Response
+
+You can retrieve the last response received by the client using the `last_response` property of the `client` object:
+
+```python
+from m2x.client import M2XClient
+
+# Instantiate a client
+client = M2XClient(key=os.environ['API_KEY'])
+
+# Make a request to the M2X API
+client.devices()
+
+# Get raw HTTP response
+raw = client.last_response.raw
+
+# Get HTTP respose status code (e.g. `200`)
+status = client.last_response.status
+
+# Get HTTP response headers
+headers = client.last_response.headers
+
+# Get json data returned in HTTP response
+json = client.last_response.json
+```
+
 ## Versioning
 
 This lib aims to adhere to [Semantic Versioning 2.0.0](http://semver.org/). As
