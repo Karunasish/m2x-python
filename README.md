@@ -144,6 +144,7 @@ $ API_KEY=<API-KEY-TOKEN> python ./example.py
 You can retrieve the last response received by the client using the `last_response` property of the `client` object:
 
 ```python
+import os
 from m2x.client import M2XClient
 
 # Instantiate a client
