@@ -17,10 +17,10 @@ class Collection(Resource, Metadata):
     def devices(self):
         return CollectionDevice.list(self.api, collection_id=self.id)
 
-    def add_device(self, serial):
-        path = self.subpath('/devices/{device_id}'.format(device_id=serial))
+    def add_device(self, device_id):
+        path = self.subpath('/devices/{device_id}'.format(device_id=device_id))
         return self.api.put(path)
 
-    def remove_device(self, serial):
-        path = self.subpath('/devices/{device_id}'.format(device_id=serial))
+    def remove_device(self, device_id):
+        path = self.subpath('/devices/{device_id}'.format(device_id=device_id))
         return self.api.delete(path)
