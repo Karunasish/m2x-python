@@ -1,6 +1,6 @@
+from m2x.v2.resource import Resource
 from m2x.v2.devices import Device
 from m2x.v2.metadata import Metadata
-from m2x.v2.resource import Resource
 
 
 class CollectionDevice(Device):
