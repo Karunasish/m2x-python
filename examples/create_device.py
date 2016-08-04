@@ -4,7 +4,6 @@
 #   $ KEY=<YOUR MASTER API KEY> python example.py
 
 import os
-import time
 
 from m2x.client import M2XClient
 
