@@ -102,41 +102,14 @@ This `client` an interface to your data in M2X
   keys = client.keys()
   ```
 
-## Example
+## Examples
 
-Here's an example of a simple application that will load the current time to
-a stream every 10 seconds:
+Scripts demonstrating usage of the M2X Python Client Library can be found in the [examples](/examples) directory. Each example leverages system environment variables to inject user specific information such as the M2X `API Key` or `Device ID`. Review the example you would like to try first to determine which environment variables are required (hint: search for `os.environ` in the example). Then make sure to set the required environment variable(s) when running the script.
 
-```python
-import os
-import time
-
-from m2x.client import M2XClient
-
-
-# Instantiate a client
-client = M2XClient(key=os.environ['API_KEY'])
-
-# Create a device
-device = client.create_device(
-    name='Current Time Example',
-    description='Store current time every 10 seconds',
-    visibility='public'
-)
-
-# Create a data stream
-stream = device.create_stream('current_time')
-
-# And now register the current time every 10 seconds (hit ctrl-c to kill)
-while True:
-    stream.add_value(int(time.time()))
-    time.sleep(10)
-```
-
-To run this example you need a `API Key` and execute it like this:
+For example, in order to run the [post_value](/examples/post_value.py) script, you will need an `API Key`. After adding your API Key to the `post_value.py` file, navigate to the `/examples` directory and run the following command to execute the script:
 
 ```bash
-$ API_KEY=<API-KEY-TOKEN> python ./example.py
+$ API_KEY=<YOUR-API-KEY> python ./post_value.py
 ```
 
 ## Getting HTTP Response
