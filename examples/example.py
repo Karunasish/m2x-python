@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Run like this:
+# Usage:
 #   $ KEY=<YOUR APIKEY> DEVICE=<YOUR DEVICE ID> python example.py
 
 import os
