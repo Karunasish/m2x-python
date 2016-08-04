@@ -4,7 +4,6 @@
 #   $ DEVICE_ID=<YOUR DEVICE ID> API_KEY=<YOUR APIKEY> python example.py
 
 import os
-import time
 
 from m2x.client import M2XClient
 
