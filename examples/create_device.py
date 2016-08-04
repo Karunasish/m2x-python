@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Usage:
-#   $ KEY=<YOUR MASTER API KEY> python example.py
+#   $ API_KEY=<YOUR MASTER API KEY> python example.py
 
 import os
 
