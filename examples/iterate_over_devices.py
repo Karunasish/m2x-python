@@ -14,6 +14,9 @@ client = M2XClient(key=os.environ['API_KEY'])
 # Docs: https://m2x.att.com/developer/documentation/v2/device#List-Devices
 page_of_devices = client.devices()
 number_of_pages = client.last_response.json['pages']
+total_devices = client.last_response.json['total']
+
+print "Total Number of Devices: {t}".format(t=total_devices)
 
 # Iterate over all pages of devices
 # using default page limit of 100
