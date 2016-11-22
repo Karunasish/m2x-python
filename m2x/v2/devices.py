@@ -38,6 +38,9 @@ class Device(Resource, Metadata):
     def update_location(self, **params):
         return self.api.put(self.subpath('/location'), data=params)
 
+    def delete_location_history(self, **values):
+        return self.api.delete(self.subpath('/location/waypoints'), **values)
+
     def log(self):
         return self.api.get(self.subpath('/log'))
 
