@@ -14,8 +14,8 @@ class Collection(Resource, Metadata):
     ITEM_PATH = 'collections/{id}'
     ITEMS_KEY = 'collections'
 
-    def devices(self):
-        return CollectionDevice.list(self.api, collection_id=self.id)
+    def devices(self, **params):
+        return CollectionDevice.list(self.api, collection_id=self.id, **params)
 
     def add_device(self, device_id):
         path = self.subpath('/devices/{device_id}'.format(device_id=device_id))
