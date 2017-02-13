@@ -1,0 +1,1558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>AT&amp;T M2X Python Client Library &#8212; AT&amp;T M2X Python Client Library 5.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '5.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AT&amp;T M2X Python Client Library 5.4.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-m2x.v2">
+<span id="at-t-m2x-python-client-library"></span><h1>AT&amp;T M2X Python Client Library<a class="headerlink" href="#module-m2x.v2" title="Permalink to this headline">¶</a></h1>
+<p>Python toolkit for the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/overview">AT&amp;T M2X API</a>.</p>
+<p>View the <a class="reference external" href="https://github.com/attm2x/m2x-python/blob/master/README.md">M2X Python Client README</a> for usage details.</p>
+<p>All methods in this client library require an API Key for authentication. There are multiple types of API Keys which
+provide granular access to your M2X resources. Please review the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/overview#API-Keys">API Keys documentation</a>
+for more details on the different types of keys available.</p>
+<p>If an invalid API Key is utilized, you will receive the following error when calling client methods:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+        <span class="o">...</span>
+<span class="gr">requests.exceptions.HTTPError</span>: <span class="n">401 Client Error: Unauthorized</span>
+</pre></div>
+</div>
+<div class="section" id="module-m2x.v2.api">
+<span id="api-module"></span><h2>API Module<a class="headerlink" href="#module-m2x.v2.api" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.api.V2Mixin">
+<em class="property">class </em><code class="descname">V2Mixin</code><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Wrapper for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/overview">AT&amp;T M2X API</a></p>
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.collection">
+<code class="descname">collection</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#View-Collection-Details">View Collection Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Collection to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Collection</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.collections.Collection" title="m2x.v2.collections.Collection">Collection</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.collections">
+<code class="descname">collections</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.collections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.collections" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#List-collections">List Collections</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.collections.Collection" title="m2x.v2.collections.Collection"><code class="xref py py-class docutils literal"><span class="pre">Collection</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.command">
+<code class="descname">command</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#View-Command-Details">View Command Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Command to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Command</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Command</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.commands">
+<code class="descname">commands</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.commands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#List-Sent-Commands">List Sent Commands</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <code class="xref py py-class docutils literal"><span class="pre">Command</span></code> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.create_collection">
+<code class="descname">create_collection</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.create_collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.create_collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Create-Collection">Create Collection</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created Collection</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.collections.Collection" title="m2x.v2.collections.Collection">Collection</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.create_device">
+<code class="descname">create_device</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.create_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.create_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Create-Device">Create Device</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created Device</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.devices.Device" title="m2x.v2.devices.Device">Device</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.create_distribution">
+<code class="descname">create_distribution</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.create_distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.create_distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Create-Distribution">Create Distribution</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created Distribution</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.distributions.Distribution" title="m2x.v2.distributions.Distribution">Distribution</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.create_key">
+<code class="descname">create_key</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.create_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.create_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys#Create-Key">Create Key</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created Key</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.keys.Key" title="m2x.v2.keys.Key">Key</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.device">
+<code class="descname">device</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#View-Device-Details">View Device Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Device to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Device</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.devices.Device" title="m2x.v2.devices.Device">Device</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.device_catalog">
+<code class="descname">device_catalog</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.device_catalog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.device_catalog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Public-Devices-Catalog">List Public Devices Catalog</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.devices.Device" title="m2x.v2.devices.Device"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.device_tags">
+<code class="descname">device_tags</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.device_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.device_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Device-Tags">List Device Tags</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Device tags associated with your account</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.devices">
+<code class="descname">devices</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Devices">List Devices</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.devices.Device" title="m2x.v2.devices.Device"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.devices_search">
+<code class="descname">devices_search</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.devices_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.devices_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Search-Devices">Search Devices</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.devices.Device" title="m2x.v2.devices.Device"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.distribution">
+<code class="descname">distribution</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#View-Distribution-Details">View Distribution Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Distribution to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Distribution</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.distributions.Distribution" title="m2x.v2.distributions.Distribution">Distribution</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.distributions">
+<code class="descname">distributions</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.distributions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.distributions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#List-Distributions">List Distributions</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.distributions.Distribution" title="m2x.v2.distributions.Distribution"><code class="xref py py-class docutils literal"><span class="pre">Distribution</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.job">
+<code class="descname">job</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/jobs#View-Job-Details">View Job Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Job to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Job</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Job</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.key">
+<code class="descname">key</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys#View-Key-Details">View Key Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Key to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Key</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.keys.Key" title="m2x.v2.keys.Key">Key</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys#List-Keys">List Keys</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.keys.Key" title="m2x.v2.keys.Key"><code class="xref py py-class docutils literal"><span class="pre">Key</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.send_command">
+<code class="descname">send_command</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.send_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.send_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Send-Command">Send Command</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The Command that was just sent</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Command</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current status of AT&amp;T M2X API</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Current status of AT&amp;T M2X API</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.time">
+<code class="descname">time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/time">/time</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The M2X server&#8217;s current time in seconds, milliseconds and ISO8601 format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.time_iso8601">
+<code class="descname">time_iso8601</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.time_iso8601"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.time_iso8601" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/time">/time/iso8601</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The M2X server&#8217;s current time in ISO8601 format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.time_millis">
+<code class="descname">time_millis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.time_millis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.time_millis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/time">/time/millis</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The M2X server&#8217;s current time in milliseconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.api.V2Mixin.time_seconds">
+<code class="descname">time_seconds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/api.html#V2Mixin.time_seconds"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.api.V2Mixin.time_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/time">/time/seconds</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The M2X server&#8217;s current time in seconds</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.collections">
+<span id="collections-module"></span><h2>Collections Module<a class="headerlink" href="#module-m2x.v2.collections" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.collections.Collection">
+<em class="property">class </em><code class="descname">Collection</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/collections.html#Collection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.collections.Collection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x.v2.resource.Resource" title="m2x.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.resource.Resource</span></code></a>, <a class="reference internal" href="#m2x.v2.metadata.Metadata" title="m2x.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.metadata.Metadata</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections">Collections API</a></p>
+<dl class="method">
+<dt id="m2x.v2.collections.Collection.add_device">
+<code class="descname">add_device</code><span class="sig-paren">(</span><em>device_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/collections.html#Collection.add_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.collections.Collection.add_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Add-device-to-collection">Add device to collection</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Device being added to Collection</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.collections.Collection.devices">
+<code class="descname">devices</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/collections.html#Collection.devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.collections.Collection.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#List-Devices-from-an-existing-Collection">List Devices from an existing Collection</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of <a class="reference internal" href="#m2x.v2.devices.Device" title="m2x.v2.devices.Device"><code class="xref py py-class docutils literal"><span class="pre">Device</span></code></a> objects</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.collections.Collection.remove_device">
+<code class="descname">remove_device</code><span class="sig-paren">(</span><em>device_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/collections.html#Collection.remove_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.collections.Collection.remove_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Remove-device-from-collection">Remove device from collection</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>device_id</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) &#8211; ID of the Device being removed from Collection</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.devices">
+<span id="devices-module"></span><h2>Devices Module<a class="headerlink" href="#module-m2x.v2.devices" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.devices.Device">
+<em class="property">class </em><code class="descname">Device</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x.v2.resource.Resource" title="m2x.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.resource.Resource</span></code></a>, <a class="reference internal" href="#m2x.v2.metadata.Metadata" title="m2x.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.metadata.Metadata</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device">Device API</a></p>
+<dl class="method">
+<dt id="m2x.v2.devices.Device.command">
+<code class="descname">command</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Device-s-View-of-Command-Details">Device&#8217;s View of Command Details</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> &#8211; ID of the Command to retrieve</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.commands">
+<code class="descname">commands</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.commands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Device-s-List-of-Received-Commands">Device&#8217;s List of Received Commands</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.create_key">
+<code class="descname">create_key</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.create_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.create_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an API Key for this Device via the <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys#Create-Key">Create Key</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created Key</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.keys.Key" title="m2x.v2.keys.Key">Key</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.create_stream">
+<code class="descname">create_stream</code><span class="sig-paren">(</span><em>name</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.create_stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.create_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream">Create/Update Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; Name of the stream to be created</li>
+<li><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The newly created Stream</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#m2x.v2.streams.Stream" title="m2x.v2.streams.Stream">Stream</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.delete_location_history">
+<code class="descname">delete_location_history</code><span class="sig-paren">(</span><em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.delete_location_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.delete_location_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Delete-Location-History">Delete Device Location History</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.keys" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Lists Keys associated with this device via the</dt>
+<dd><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys#List-Keys">List Keys</a> endpoint.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of API keys associated with this device as <a class="reference internal" href="#m2x.v2.keys.Key" title="m2x.v2.keys.Key"><code class="xref py py-class docutils literal"><span class="pre">Key</span></code></a> objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.location">
+<code class="descname">location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location">Read Device Location</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Most recently logged location of the Device, see M2X API docs for details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.location_history">
+<code class="descname">location_history</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.location_history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.location_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Location-History">Read Device Location History</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Location history of the Device</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.log">
+<code class="descname">log</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#View-Request-Log">View Request Log</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Most recent API requests made against this Device</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.post_update">
+<code class="descname">post_update</code><span class="sig-paren">(</span><em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.post_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.post_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <cite>Post Device Update (Single Values to Multiple Streams) &lt;https://m2x.att.com/developer/documentation/v2/device#Post-Device-Update&#8211;Single-Values-to-Multiple-Streams-&gt;</cite> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; The values being posted, formatted according to the API docs</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.post_updates">
+<code class="descname">post_updates</code><span class="sig-paren">(</span><em>**values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.post_updates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.post_updates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Post-Device-Updates--Multiple-Values-to-Multiple-Streams-">Post Device Updates (Multiple Values to Multiple Streams)</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; The values being posted, formatted according to the API docs</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.process_command">
+<code class="descname">process_command</code><span class="sig-paren">(</span><em>id</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.process_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.process_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Processed">Device Marks a Command as Processed</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> &#8211; ID of the Command being marked as processed</li>
+<li><strong>params</strong> &#8211; Optional data to be associated with the processed command, see API docs for details</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.reject_command">
+<code class="descname">reject_command</code><span class="sig-paren">(</span><em>id</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.reject_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.reject_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/commands#Device-Marks-a-Command-as-Rejected">Device Marks a Command as Rejected</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> &#8211; ID of the Command being marked as rejected</li>
+<li><strong>params</strong> &#8211; Optional data to be associated with the rejected command, see API docs for details</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.stream">
+<code class="descname">stream</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#View-Data-Stream">View Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; The name of the Stream being retrieved</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The matching Stream</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.streams.Stream" title="m2x.v2.streams.Stream">Stream</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.streams">
+<code class="descname">streams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.streams"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.streams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Streams">List Data Streams</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of data streams associated with this device as <a class="reference internal" href="#m2x.v2.streams.Stream" title="m2x.v2.streams.Stream"><code class="xref py py-class docutils literal"><span class="pre">Stream</span></code></a> objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.update_location">
+<code class="descname">update_location</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.update_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.update_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Location">Update Device Location</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.update_stream">
+<code class="descname">update_stream</code><span class="sig-paren">(</span><em>name</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.update_stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.update_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream">Create/Update Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> &#8211; Name of the stream to be updated</li>
+<li><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The Stream being updated</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="#m2x.v2.streams.Stream" title="m2x.v2.streams.Stream">Stream</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.values">
+<code class="descname">values</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Stream-Values">List Data Stream Values</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.values_export">
+<code class="descname">values_export</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.values_export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.values_export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Export-Values-from-all-Data-Streams-of-a-Device">Export Values from all Data Streams of a Device</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.devices.Device.values_search">
+<code class="descname">values_search</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/devices.html#Device.values_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.devices.Device.values_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Search-Values-from-all-Data-Streams-of-a-Device">Search Values from all Data Streams of a Device</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.distributions">
+<span id="distributions-module"></span><h2>Distributions Module<a class="headerlink" href="#module-m2x.v2.distributions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.distributions.Distribution">
+<em class="property">class </em><code class="descname">Distribution</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/distributions.html#Distribution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.distributions.Distribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x.v2.resource.Resource" title="m2x.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.resource.Resource</span></code></a>, <a class="reference internal" href="#m2x.v2.metadata.Metadata" title="m2x.v2.metadata.Metadata"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.metadata.Metadata</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution">Distribution API</a></p>
+<dl class="method">
+<dt id="m2x.v2.distributions.Distribution.add_device">
+<code class="descname">add_device</code><span class="sig-paren">(</span><em>serial</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/distributions.html#Distribution.add_device"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.distributions.Distribution.add_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Add-Device-to-an-existing-Distribution">Add Device to an Existing Distribution</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>serial</strong> &#8211; The unique (account-wide) serial for the DistributionDevice being added to the Distribution</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The newly created DistributionDevice</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">DistributionDevice</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.distributions.Distribution.devices">
+<code class="descname">devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/distributions.html#Distribution.devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.distributions.Distribution.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#List-Devices-from-an-existing-Distribution">List Devices from an existing Distribution</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of Devices associated with this Distribution as <code class="xref py py-class docutils literal"><span class="pre">DistributionDevice</span></code> objects</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#list">list</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.keys">
+<span id="keys-module"></span><h2>Keys Module<a class="headerlink" href="#module-m2x.v2.keys" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.keys.Key">
+<em class="property">class </em><code class="descname">Key</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/keys.html#Key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.keys.Key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x.v2.resource.Resource" title="m2x.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.resource.Resource</span></code></a></p>
+<p>Wrapper for AT&amp;T M2X <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys">Keys API</a></p>
+<dl class="method">
+<dt id="m2x.v2.keys.Key.regenerate">
+<code class="descname">regenerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/keys.html#Key.regenerate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.keys.Key.regenerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/keys#Regenerate-Key">Regenerate Key</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.metadata">
+<span id="metadata-module"></span><h2>Metadata Module<a class="headerlink" href="#module-m2x.v2.metadata" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.metadata.Metadata">
+<em class="property">class </em><code class="descname">Metadata</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/metadata.html#Metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.metadata.Metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Generic methods for interacting with an M2X resource&#8217;s Metadata</p>
+<dl class="method">
+<dt id="m2x.v2.metadata.Metadata.read_metadata">
+<code class="descname">read_metadata</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/metadata.html#Metadata.read_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.metadata.Metadata.read_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Read Metadata endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata">Read Device Metadata</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata">Read Distribution Metadata</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata">Read Collection Metadata</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">All of the user defined metadata associated with the resource</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.metadata.Metadata.read_metadata_field">
+<code class="descname">read_metadata_field</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/metadata.html#Metadata.read_metadata_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.metadata.Metadata.read_metadata_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Read Metadata Field endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata-Field">Read Device Metadata Field</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata-Field">Read Distribution Metadata Field</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata-Field">Read Collection Metadata Field</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The value for the given metadata field of the resource</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.metadata.Metadata.update_metadata">
+<code class="descname">update_metadata</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/metadata.html#Metadata.update_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.metadata.Metadata.update_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Update Metadata endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata">Update Device Metadata</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata">Update Distribution Metadata</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata">Update Collection Metadata</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; The metadata being updated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.metadata.Metadata.update_metadata_field">
+<code class="descname">update_metadata_field</code><span class="sig-paren">(</span><em>field</em>, <em>value</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/metadata.html#Metadata.update_metadata_field"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.metadata.Metadata.update_metadata_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Update Metadata Field endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata-Field">Update Device Metadata Field</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata-Field">Update Distribution Metadata Field</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata-Field">Update Collection Metadata Field</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>field</strong> &#8211; The metadata field to be updated</li>
+<li><strong>value</strong> &#8211; The value to update</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.resource">
+<span id="resource-module"></span><h2>Resource Module<a class="headerlink" href="#module-m2x.v2.resource" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.resource.Resource">
+<em class="property">class </em><code class="descname">Resource</code><span class="sig-paren">(</span><em>api</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/resource.html#Resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Generic methods for interacting with an M2X resource</p>
+<dl class="method">
+<dt id="m2x.v2.resource.Resource.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/resource.html#Resource.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.resource.Resource.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Delete endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Delete-Device">Delete Device</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Delete-Distribution">Delete Distribution</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Delete-Collection">Delete Collection</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.resource.Resource.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/resource.html#Resource.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.resource.Resource.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic method for a resource&#8217;s Update endpoint.</p>
+<p>Example endpoints:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Device-Details">Update Device Details</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Details">Update Distribution Details</a></li>
+<li><a class="reference external" href="https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Details">Update Collection Details</a></li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-m2x.v2.streams">
+<span id="streams-module"></span><h2>Streams Module<a class="headerlink" href="#module-m2x.v2.streams" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="m2x.v2.streams.Stream">
+<em class="property">class </em><code class="descname">Stream</code><span class="sig-paren">(</span><em>api</em>, <em>device</em>, <em>**data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#m2x.v2.resource.Resource" title="m2x.v2.resource.Resource"><code class="xref py py-class docutils literal"><span class="pre">m2x.v2.resource.Resource</span></code></a></p>
+<p>Methods for interacting AT&amp;T M2X Device Streams</p>
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.add_value">
+<code class="descname">add_value</code><span class="sig-paren">(</span><em>value</em>, <em>timestamp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.add_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.add_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value">Update Data Stream Value</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> &#8211; The updated stream value</li>
+<li><strong>timestamp</strong> &#8211; The (optional) timestamp for the upadted value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.delete_values">
+<code class="descname">delete_values</code><span class="sig-paren">(</span><em>start</em>, <em>stop</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.delete_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.delete_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Delete-Data-Stream-Values">Delete Data Stream Values</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> &#8211; ISO8601 timestamp for starting timerange for values to be deleted</li>
+<li><strong>stop</strong> &#8211; ISO8601 timestamp for ending timerange for values to be deleted</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.post_values">
+<code class="descname">post_values</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.post_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.post_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Post-Data-Stream-Values">Post Data Stream Values</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a>) &#8211; Values to post, see M2X API docs for details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Delete-Data-Stream">Delete Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.sampling">
+<code class="descname">sampling</code><span class="sig-paren">(</span><em>interval</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.sampling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.sampling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Sampling">Data Stream Sampling</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>interval</strong> &#8211; the sampling interval, see API docs for supported interval types</li>
+<li><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.stats">
+<code class="descname">stats</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Data-Stream-Stats">Data Stream Stats</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>**attrs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Create-Update-Data-Stream">Update Data Stream</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attrs</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The Stream being updated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#m2x.v2.streams.Stream" title="m2x.v2.streams.Stream">Stream</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.update_value">
+<code class="descname">update_value</code><span class="sig-paren">(</span><em>value</em>, <em>timestamp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#m2x.v2.streams.Stream.update_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#Update-Data-Stream-Value">Update Data Stream Value</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>value</strong> &#8211; The updated stream value</li>
+<li><strong>timestamp</strong> &#8211; The (optional) timestamp for the upadted value</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The API response, see M2X API docs for details</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="m2x.v2.streams.Stream.values">
+<code class="descname">values</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/m2x/v2/streams.html#Stream.values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#m2x.v2.streams.Stream.values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for <a class="reference external" href="https://m2x.att.com/developer/documentation/v2/device#List-Data-Stream-Values">List Data Stream Values</a> endpoint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> &#8211; Query parameters passed as keyword arguments. View M2X API Docs for listing of available parameters.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The API response, see M2X API docs for details</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)">dict</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">HTTPError</span></code> if an error occurs when sending the HTTP request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">AT&amp;T M2X Python Client Library</a><ul>
+<li><a class="reference internal" href="#module-m2x.v2.api">API Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.collections">Collections Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.devices">Devices Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.distributions">Distributions Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.keys">Keys Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.metadata">Metadata Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.resource">Resource Module</a></li>
+<li><a class="reference internal" href="#module-m2x.v2.streams">Streams Module</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AT&amp;T M2X Python Client Library 5.4.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, AT&amp;T.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>
