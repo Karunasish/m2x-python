@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>m2x.v2.metadata &#8212; AT&amp;T M2X Python Client Library 5.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '5.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">AT&amp;T M2X Python Client Library 5.4.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for m2x.v2.metadata</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Metadata"><a class="viewcode-back" href="../../../index.html#m2x.v2.metadata.Metadata">[docs]</a><span></span><span class="k">class</span> <span class="nc">Metadata</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot; Generic methods for interacting with an M2X resource&#39;s Metadata</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">api</span>
+
+<div class="viewcode-block" id="Metadata.read_metadata"><a class="viewcode-back" href="../../../index.html#m2x.v2.metadata.Metadata.read_metadata">[docs]</a>  <span class="k">def</span> <span class="nf">read_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generic method for a resource&#39;s Read Metadata endpoint.</span>
+
+<span class="sd">    Example endpoints:</span>
+
+<span class="sd">    * `Read Device Metadata &lt;https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata&gt;`_</span>
+<span class="sd">    * `Read Distribution Metadata &lt;https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata&gt;`_</span>
+<span class="sd">    * `Read Collection Metadata &lt;https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata&gt;`_</span>
+
+<span class="sd">    :return: All of the user defined metadata associated with the resource</span>
+<span class="sd">    :rtype: dict</span>
+
+<span class="sd">    :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_path</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Metadata.read_metadata_field"><a class="viewcode-back" href="../../../index.html#m2x.v2.metadata.Metadata.read_metadata_field">[docs]</a>  <span class="k">def</span> <span class="nf">read_metadata_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generic method for a resource&#39;s Read Metadata Field endpoint.</span>
+
+<span class="sd">    Example endpoints:</span>
+
+<span class="sd">    * `Read Device Metadata Field &lt;https://m2x.att.com/developer/documentation/v2/device#Read-Device-Metadata-Field&gt;`_</span>
+<span class="sd">    * `Read Distribution Metadata Field &lt;https://m2x.att.com/developer/documentation/v2/distribution#Read-Distribution-Metadata-Field&gt;`_</span>
+<span class="sd">    * `Read Collection Metadata Field &lt;https://m2x.att.com/developer/documentation/v2/collections#Read-Collection-Metadata-Field&gt;`_</span>
+
+<span class="sd">    :return: The value for the given metadata field of the resource</span>
+<span class="sd">    :rtype: dict</span>
+
+<span class="sd">    :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_field_path</span><span class="p">(</span><span class="n">field</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="Metadata.update_metadata"><a class="viewcode-back" href="../../../index.html#m2x.v2.metadata.Metadata.update_metadata">[docs]</a>  <span class="k">def</span> <span class="nf">update_metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generic method for a resource&#39;s Update Metadata endpoint.</span>
+
+<span class="sd">    Example endpoints:</span>
+
+<span class="sd">    * `Update Device Metadata &lt;https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata&gt;`_</span>
+<span class="sd">    * `Update Distribution Metadata &lt;https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata&gt;`_</span>
+<span class="sd">    * `Update Collection Metadata &lt;https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata&gt;`_</span>
+
+<span class="sd">    :param params: The metadata being updated</span>
+
+<span class="sd">    :return: The API response, see M2X API docs for details</span>
+<span class="sd">    :rtype: dict</span>
+
+<span class="sd">    :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_path</span><span class="p">(),</span> <span class="n">data</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Metadata.update_metadata_field"><a class="viewcode-back" href="../../../index.html#m2x.v2.metadata.Metadata.update_metadata_field">[docs]</a>  <span class="k">def</span> <span class="nf">update_metadata_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generic method for a resource&#39;s Update Metadata Field endpoint.</span>
+
+<span class="sd">    Example endpoints:</span>
+
+<span class="sd">    * `Update Device Metadata Field &lt;https://m2x.att.com/developer/documentation/v2/device#Update-Device-Metadata-Field&gt;`_</span>
+<span class="sd">    * `Update Distribution Metadata Field &lt;https://m2x.att.com/developer/documentation/v2/distribution#Update-Distribution-Metadata-Field&gt;`_</span>
+<span class="sd">    * `Update Collection Metadata Field &lt;https://m2x.att.com/developer/documentation/v2/collections#Update-Collection-Metadata-Field&gt;`_</span>
+
+<span class="sd">    :param field: The metadata field to be updated</span>
+<span class="sd">    :param value: The value to update</span>
+
+<span class="sd">    :return: The API response, see M2X API docs for details</span>
+<span class="sd">    :rtype: dict</span>
+
+<span class="sd">    :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_field_path</span><span class="p">(</span><span class="n">field</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">value</span> <span class="p">})</span></div>
+
+  <span class="k">def</span> <span class="nf">metadata_field_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata_path</span><span class="p">(),</span> <span class="n">field</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">metadata_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subpath</span><span class="p">(</span><span class="s1">&#39;/metadata&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">AT&amp;T M2X Python Client Library 5.4.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, AT&amp;T.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
+    </div>
+  </body>
+</html>
