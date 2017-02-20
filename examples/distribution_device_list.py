@@ -14,8 +14,8 @@ DISTRIBUTION_ID = os.environ['DISTRIBUTION_ID']
 client = M2XClient(key=KEY)
 
 params = {
-	"limit":"3",
-	"page":"1"
+    "limit":"3",
+    "page":"1"
 }
 
 # Get target distribution
