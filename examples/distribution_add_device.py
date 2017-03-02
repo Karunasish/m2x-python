@@ -14,7 +14,7 @@ DISTRIBUTION_ID = os.environ['DISTRIBUTION_ID']
 client = M2XClient(key=KEY)
 
 params = {
-	'name':'Distribution Test',
+    'name':'Distribution Test',
     'description':'Test device for distribution',
     'visibility':'private',
     'serial':'abc'  # Required param. Must be Unique.
