@@ -5,6 +5,14 @@ from m2x.v2.devices import Device
 class DistributionDevice(Device):
     COLLECTION_PATH = 'distributions/{distribution_id}/devices'
 
+    @classmethod
+    def create(cls, api, distribution_id, **attrs):
+        return super(cls, cls).create(
+            api,
+            path=cls.collection_path(distribution_id=distribution_id),
+            **attrs
+        )
+
 class Distribution(Resource, Metadata):
     """ Wrapper for AT&T M2X `Distribution API <https://m2x.att.com/developer/documentation/v2/distribution>`_
     """
@@ -34,5 +42,4 @@ class Distribution(Resource, Metadata):
 
         :raises: :class:`~requests.exceptions.HTTPError` if an error occurs when sending the HTTP request
         """
-        path = self.subpath('/devices')
-        return self.api.post(path, data=params)
+        return DistributionDevice.create(self.api, distribution_id=self.id, **params)
