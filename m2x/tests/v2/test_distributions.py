@@ -32,5 +32,5 @@ class TestDistributions(BaseTestCase):
 
     @BaseTestCase.request_case
     def test_add_device(self, params=None, **kwargs):
-        out = self.distribution.add_device(**params)
+        out = self.distribution.add_device(params)
         assert out.name == 'device3'

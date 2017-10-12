@@ -265,5 +265,5 @@ class Device(Resource, Metadata):
 
     @classmethod
     def search(cls, api, **params):
-        response = api.post('devices/search', **params)
+        response = api.get('devices/search', **params)
         return cls.itemize(api, response)

@@ -134,7 +134,7 @@ class HTTPAPIBase(APIBase):
             kwargs.setdefault('headers', {})
             kwargs['headers']['X-M2X-KEY'] = apikey
 
-        if method in ('PUT', 'POST', 'DELETE', 'PATCH') and kwargs.get('data'):
+        if kwargs.get('data'):
             kwargs['data'] = self.to_json(kwargs['data'])
 
         resp = self.session.request(method, url, **kwargs)
