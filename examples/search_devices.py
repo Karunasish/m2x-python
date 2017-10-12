@@ -7,20 +7,24 @@ import os
 
 from m2x.client import M2XClient
 from m2x.v2.devices import Device
- 
+
 client = M2XClient(key=os.environ['API_KEY'])
 
 params = {
-	"visibility": "private",
-	"status": "enabled",
-	"limit": "3"
+    "visibility": "private",
+    "status": "enabled",
+    "limit": "3"
 }
 
-response = Device.search(api = client, params = params)
+# Use data=... to send also a JSON body in the request
+response = Device.search(api=client, data=params)
+
 if len(response) > 0:
-    print("\nDevice Details :")
+    print("Devices Details:\n")
     for device in response:
-        print("Device name: %s Device Id: %s Device Visibility: %s Device Status: %s " % (device.name, device.id, device.visibility, device.status ))
+        print("          Name: {device.name}".format(device=device))
+        print("            Id: {device.id}".format(device=device))
+        print("    Visibility: {device.visibility}".format(device=device))
+        print("        Status: {device.status}\n".format(device=device))
 else:
     print("Devices not available in this search criteria")
- 
